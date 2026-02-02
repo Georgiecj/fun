@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Valentine’s Day</title>
+
+<style>
+
+/* ---------- Root Variables ---------- */
+:root {
+  --pink: #ff8fb1;
+  --rose: #ff5f8a;
+  --cream: #fff5e6;
+  --deep-red: #a4161a;
+  --gold: #f2c14e;
+  --dark: #2b2b2b;
+}
+
+/* ---------- Reset ---------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ---------- Body ---------- */
+body {
+  background: linear-gradient(135deg, #fff0f5, #ffe6ec);
+  font-family: "Georgia", serif;
+  color: var(--dark);
+  overflow-x: hidden;
+}
+
+/* ---------- Floating Hearts ---------- */
+.hearts {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.heart {
+  position: absolute;
+  color: rgba(255, 95, 138, 0.4);
+  animation: floatUp 10s linear infinite;
+}
+
+@keyframes floatUp {
+  0% { transform: translateY(100vh); opacity:0; }
+  10% { opacity:1; }
+  100% { transform: translateY(-10vh); opacity:0; }
+}
+
+/* ---------- Layout ---------- */
+main {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.card {
+  background: rgba(255,255,255,0.88);
+  border-radius: 24px;
+  padding: 3rem;
+  max-width: 800px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+  animation: fadeIn 2s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {opacity:0; transform: translateY(30px);}
+  to {opacity:1; transform: translateY(0);}
+}
+
+/* ---------- Hero ---------- */
+.hero h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  color: var(--deep-red);
+}
+
+.hero span {
+  color: var(--rose);
+}
+
+.hero p {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+}
+
+/* ---------- Divider ---------- */
+.divider {
+  width: 120px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--pink), var(--gold));
+  margin: 2rem auto;
+  border-radius: 10px;
+}
+
+/* ---------- Letter ---------- */
+.letter {
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+/* ---------- Compliments ---------- */
+.compliments {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+  gap: 1rem;
+}
+
+.compliment {
+  background: linear-gradient(135deg, #fff, #ffe9f0);
+  padding: 1.3rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+
+/* ---------- Valentine Question ---------- */
+.question {
+  margin-top: 3rem;
+  font-size: 1.6rem;
+  color: var(--deep-red);
+}
+
+.buttons {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  position: relative;
+}
+
+button {
+  padding: 0.8rem 2rem;
+  border-radius: 30px;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+#yesBtn {
+  background: var(--rose);
+  color: white;
+}
+
+#yesBtn:hover {
+  background: #ff3b6f;
+  transform: scale(1.1);
+}
+
+#noBtn {
+  background: #ddd;
+  color: #333;
+  position: relative;
+}
+
+/* ---------- Result ---------- */
+.result {
+  display: none;
+  margin-top: 2rem;
+  animation: fadeIn 1s ease forwards;
+}
+
+.result img {
+  max-width: 250px;
+  border-radius: 20px;
+  margin-top: 1rem;
+}
+
+/* ---------- Footer ---------- */
+footer {
+  margin-top: 2rem;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width:600px){
+  .card{padding:2rem;}
+  .buttons{flex-direction:column;}
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- Floating Hearts -->
+<div class="hearts">
+  <span class="heart">❤</span>
+  <span class="heart">❤</span>
+  <span class="heart">❤</span>
+  <span class="heart">❤</span>
+  <span class="heart">❤</span>
+</div>
+
+<main>
+<div class="card">
+
+<!-- Hero -->
+<section class="hero">
+<h1>Happy Valentine’s Day, <span>Ameechuu...</span></h1>
+<p>Being with you just works.
+Suspiciously well.</p>
+</section>
+
+<div class="divider"></div>
+
+<!-- Letter -->
+<section class="letter">
+
+<p>You make my days better in ways I’m not even mad about.</p>
+
+</section>
+
+<!-- Compliments -->
+<section class="compliments">
+<div class="compliment">You’re effortlessly beautiful.</div>
+<div class="compliment">You’re smart and kind.</div>
+<div class="compliment">I like you.
+More than I should. And I’m not sorry.
+</div>
+
+</section>
+
+<!-- Valentine Question -->
+<div class="question">Would you be my Valentine?</div>
+
+<div class="buttons">
+<button id="yesBtn">Yes 💖</button>
+<button id="noBtn">No 🙃</button>
+</div>
+
+<!-- Result -->
+<div class="result" id="result">
+<h2>Knew it 😌💘</h2>
+<p>Best decision you’ve made all day.</p>
+
+<!-- Replace GIF URL if you want -->
+<img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExeXB3MDd2OXI3MzFtOWM0aXQ4ZTBzbzl4ODBuaWtmNzd3aHgzdXhoNyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/BDGKFAMnEjGqrScP3m/giphy.gif" alt="Cute Love Gif">
+</div>
+
+<footer>Made with love </footer>
+
+</div>
+</main>
+
+<script>
+
+/* Random hearts */
+document.querySelectorAll(".heart").forEach(h=>{
+  h.style.left=Math.random()*100+"%";
+  h.style.fontSize=14+Math.random()*20+"px";
+  h.style.animationDuration=8+Math.random()*8+"s";
+});
+
+/* No button dodges */
+const noBtn=document.getElementById("noBtn");
+noBtn.addEventListener("mouseenter",()=>{
+  const x=Math.random()*200-100;
+  const y=Math.random()*200-100;
+  noBtn.style.transform=`translate(${x}px,${y}px)`;
+});
+
+/* Yes button */
+document.getElementById("yesBtn").addEventListener("click",()=>{
+  document.querySelector(".buttons").style.display="none";
+  document.getElementById("result").style.display="block";
+});
+
+</script>
+
+</body>
+</html>
